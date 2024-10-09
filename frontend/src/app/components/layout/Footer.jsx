@@ -5,7 +5,6 @@ const Footer = () => {
   return (
     <footer className="bg-gray-800 text-gray-300 overflow-hidden py-12">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 px-4">
-        {/* Customer Service */}
         <div>
           <h3 className="text-xl font-bold mb-4 text-white">Customer Service</h3>
           <ul>
@@ -17,7 +16,6 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Company Info */}
         <div>
           <h3 className="text-xl font-bold mb-4 text-white">Company</h3>
           <ul>
@@ -29,7 +27,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Subscribe and Social Links */}
+        
         <div>
           <h3 className="text-xl font-bold mb-4 text-white">Stay Connected</h3>
           <p className="mb-4">Subscribe to receive updates, access to exclusive deals, and more.</p>
@@ -63,7 +61,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Payment Methods */}
+        
         <div>
           <h3 className="text-xl font-bold mb-4 text-white">We Accept</h3>
           <p className="mb-4">Secure Payment Gateways</p>
@@ -76,7 +74,6 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Footer Bottom */}
       <div className="border-t border-gray-700 mt-12 py-6 text-center text-gray-500 text-sm">
         <p>&copy; {new Date().getFullYear()} Shopylib. All rights reserved.</p>
         <p>Powered by Next.js | Developed by Milan Bhattarai</p>

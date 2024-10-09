@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const ProductDetails = () => {
   const [quantity, setQuantity] = useState(1);
-  const [primaryImage, setPrimaryImage] = useState('/images/banner1.jpg'); // Default image
+  const [primaryImage, setPrimaryImage] = useState("/images/banner1.jpg");
 
   const images = [
-    '/images/banner1.jpg',
-    '/images/banner2.jpg',
-    '/images/banner3.jpg',
-    '/images/banner4.jpg',
-  ]; // Add the paths to your images
+    "/images/banner1.jpg",
+    "/images/banner2.jpg",
+    "/images/banner3.jpg",
+    "/images/banner4.jpg",
+  ];
 
   const increaseQuantity = () => setQuantity(quantity + 1);
   const decreaseQuantity = () => quantity > 1 && setQuantity(quantity - 1);
@@ -30,17 +30,13 @@ const ProductDetails = () => {
           </ul>
         </nav>
 
-        {/* Main Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Image Section */}
           <div className="space-y-4">
-            {/* Primary Image */}
             <div
               className={`w-full h-64 md:h-80 lg:h-96 bg-gray-200 rounded-lg bg-cover bg-center`}
               style={{ backgroundImage: `url(${primaryImage})` }}
             ></div>
 
-            {/* Thumbnail Images */}
             <div className="flex space-x-2 overflow-x-auto">
               {images.map((image, index) => (
                 <div
@@ -48,16 +44,15 @@ const ProductDetails = () => {
                   className="w-16 h-16 bg-gray-300 rounded-md cursor-pointer transition-transform duration-300 hover:scale-110"
                   style={{
                     backgroundImage: `url(${image})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
                   }}
-                  onClick={() => setPrimaryImage(image)} // Update primary image on click
+                  onClick={() => setPrimaryImage(image)}
                 ></div>
               ))}
             </div>
           </div>
 
-          {/* Details Section */}
           <div>
             <h1 className="text-3xl font-bold text-gray-800">Product Name</h1>
             <p className="text-gray-500 mt-2">Brand: Apple & More</p>
@@ -66,7 +61,6 @@ const ProductDetails = () => {
               <span className="text-2xl font-bold text-gray-800">Rs. 999</span>
             </div>
 
-            {/* Color Options */}
             <div className="mt-4">
               <h2 className="text-lg font-medium text-gray-800">Color:</h2>
               <div className="flex items-center mt-2 space-x-4">
@@ -76,7 +70,6 @@ const ProductDetails = () => {
               </div>
             </div>
 
-            {/* Quantity Selector */}
             <div className="mt-6">
               <h2 className="text-lg font-medium text-gray-800">Quantity:</h2>
               <div className="flex items-center mt-2">
@@ -96,7 +89,6 @@ const ProductDetails = () => {
               </div>
             </div>
 
-            {/* Buttons */}
             <div className="mt-8 flex space-x-4">
               <button className="bg-blue-500 text-white px-6 py-2 rounded-lg shadow-md hover:bg-blue-600">
                 Order Now
@@ -106,9 +98,10 @@ const ProductDetails = () => {
               </button>
             </div>
 
-            {/* Visit Store and Wishlist */}
             <div className="mt-4 flex items-center space-x-4">
-              <button className="text-blue-500 hover:underline">Visit Store</button>
+              <button className="text-blue-500 hover:underline">
+                Visit Store
+              </button>
               <button className="text-gray-500">
                 <i className="fas fa-heart"></i>
               </button>
@@ -116,13 +109,16 @@ const ProductDetails = () => {
           </div>
         </div>
 
-        {/* Product Description Section */}
         <div className="mt-8">
-          <h2 className="text-2xl font-bold text-gray-800">Product Description</h2>
+          <h2 className="text-2xl font-bold text-gray-800">
+            Product Description
+          </h2>
           <p className="mt-2 text-gray-600">
-            This is a detailed description of the product. It highlights features, specifications, and benefits. 
-            The product is designed to meet the needs of modern consumers with a focus on quality, durability, 
-            and style. Available in multiple colors and sizes to suit your preference.
+            This is a detailed description of the product. It highlights
+            features, specifications, and benefits. The product is designed to
+            meet the needs of modern consumers with a focus on quality,
+            durability, and style. Available in multiple colors and sizes to
+            suit your preference.
           </p>
         </div>
       </div>

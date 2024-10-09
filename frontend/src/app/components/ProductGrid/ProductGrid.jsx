@@ -1,6 +1,6 @@
 import React from 'react';
 import {useState,useEffect} from "react"
-// Sample product data (replace with your actual product data)
+
 const products = [
   { id: 1, title: 'Adjustable Ring For Men', price: 65, discount: 57, rating: 4.2, reviews: 224, imgSrc: '/images/banner1.jpg' },
   { id: 2, title: 'Shoe Rack with 12mm Pipes', price: 860, discount: 43, rating: 4.1, reviews: 18, imgSrc: '/images/product2.jpg' },
@@ -16,7 +16,7 @@ const products = [
   { id: 12, title: 'Product 12', price: 150, discount: 25, rating: 4.2, reviews: 100, imgSrc: '/images/product12.jpg' },
 ];
 
-// Utility function to divide the products array into rows of 6 items each
+
 const chunkProducts = (products, chunkSize) => {
   const chunks = [];
   for (let i = 0; i < products.length; i += chunkSize) {
@@ -27,20 +27,20 @@ const chunkProducts = (products, chunkSize) => {
 };
 
 const ProductGrid = () => {
-  // Split products into rows of 6 items
+
   const [chunkSize, setChunkSize] = useState(6);
   const rows = chunkProducts(products, chunkSize);
 
-  // Adjust the chunk size based on screen width
+ 
   const handleResize = () => {
     if (window.innerWidth >= 1360) {
-      setChunkSize(6);  // For large screens
+      setChunkSize(6); 
     } else if (window.innerWidth >= 1145) {
-      setChunkSize(5);  // For medium screens (tablets)
+      setChunkSize(5);  
     }else if(window.innerWidth >=930){
       setChunkSize(4)
     } else if(window.innerWidth >=728){
-      setChunkSize(3);  // For small screens (mobile)
+      setChunkSize(3);  
     }else{
       setChunkSize(6);
     }
@@ -48,11 +48,11 @@ const ProductGrid = () => {
 
 
   useEffect(() => {
-    handleResize(); // Set initial chunk size
-    window.addEventListener('resize', handleResize); // Update chunk size on window resize
+    handleResize(); 
+    window.addEventListener('resize', handleResize); 
 
     return () => {
-      window.removeEventListener('resize', handleResize); // Cleanup event listener
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
@@ -63,7 +63,7 @@ const ProductGrid = () => {
       {rows.map((row, rowIndex) => (
         <div
           key={rowIndex}
-          className="flex overflow-x-auto  space-x-4 mb-4" // Scrollable row
+          className="flex overflow-x-auto  space-x-4 mb-4"
         >
           {row.map((product) => (
             

@@ -138,7 +138,6 @@ const FlashSale = () => {
         <button className="text-sm text-blue-600">See More</button>
       </div>
 
-      {/* Chevron left button */}
       <button
         onClick={scrollLeft}
         className="absolute left-14 top-1/2 transform -translate-y-1/2 p-2 bg-gray-200 rounded-full shadow hover:bg-gray-300"
@@ -146,7 +145,6 @@ const FlashSale = () => {
         <ChevronLeftIcon className="h-6 w-6 text-gray-700" />
       </button>
 
-      {/* Product slider */}
       <div
         ref={scrollContainerRef}
         className="flex overflow-x-auto space-x-4 scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar-thin md:scrollbar-none scrollbar-thumb-slate-700 scrollbar-track-transparent"
@@ -184,7 +182,6 @@ const FlashSale = () => {
         ))}
       </div>
 
-      {/* Chevron right button */}
       <button
         onClick={scrollRight}
         className="absolute right-14 top-1/2 transform -translate-y-1/2 p-2 bg-gray-200 rounded-full shadow hover:bg-gray-300"
