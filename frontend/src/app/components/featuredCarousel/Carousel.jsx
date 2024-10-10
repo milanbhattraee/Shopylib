@@ -28,7 +28,8 @@ const Carousel = () => {
           <Image
             src={banner.imgSrc}
             alt={banner.alt}
-            fill
+            height={240}
+            width={500}
             loading="lazy"	
             className="object-cover"
           />
