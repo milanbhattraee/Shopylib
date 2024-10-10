@@ -1,8 +1,8 @@
-// src/app/components/FlashSale.jsx
+"use client"
 import React, { useRef } from "react";
-import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/solid"; // Import Chevron Icons
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/solid";
+import Image from "next/image";
 
-// Sample product data (replace with your actual product data)
 const products = [
   {
     id: 1,
@@ -117,14 +117,14 @@ const products = [
 const FlashSale = () => {
   const scrollContainerRef = useRef(null);
 
-  // Scroll left function
+ 
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
       scrollContainerRef.current.scrollBy({ left: -600, behavior: "smooth" });
     }
   };
 
-  // Scroll right function
+
   const scrollRight = () => {
     if (scrollContainerRef.current) {
       scrollContainerRef.current.scrollBy({ left: 600, behavior: "smooth" });
@@ -154,11 +154,14 @@ const FlashSale = () => {
             key={product.id}
             className="w-full bg-white mx-auto border rounded-lg min-w-[200px] overflow-hidden shadow"
           >
-            <img
+          <div className="w-full h-40 object-cover mb-4 rounded-t-lg">
+            <Image
               src={product.imgSrc}
               alt={product.title}
-              className="w-full h-40 object-cover mb-4 rounded-t-lg"
+              height={160}
+              width = {600}
             />
+      </div>
             <div className="px-4">
               <h3 className="text-[0.8rem] font-semibold mb-2">
                 {product.title}

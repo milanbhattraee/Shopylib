@@ -1,8 +1,9 @@
-// src/app/components/featuredCarousel/Carousel.jsx
+"use client"
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/swiper-bundle.css'; 
+import Image from 'next/image';
 
 const banners = [
   { id: 1, imgSrc: '/images/banner1.jpg', alt: 'Banner 1' },
@@ -23,11 +24,15 @@ const Carousel = () => {
     >
       {banners.map((banner) => (
         <SwiperSlide key={banner.id}>
-          <img
+        <div  className="w-full h-60 object-cover" >
+          <Image
             src={banner.imgSrc}
             alt={banner.alt}
-            className="w-full h-60 object-cover" 
+            fill
+            loading="lazy"	
+            className="object-cover"
           />
+          </div>
         </SwiperSlide>
       ))}
     </Swiper>

@@ -1,3 +1,5 @@
+"use client"
+import Image from 'next/image';
 import React from 'react';
 
 const categories = [
@@ -34,7 +36,7 @@ const categories = [
   {
     id: 7,
     title: 'Toys',
-    imgSrc: '/images/logo.jpg', 
+    imgSrc: '/images/logo.jpeg', 
   },
   {
     id: 8,
@@ -50,11 +52,15 @@ const Categories = () => {
       <div className="flex bg-white backdrop-blur-md  rounded-md py-4 overflow-x-auto space-x-4 px-6 scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent "> 
         {categories.map((category) => (
           <div key={category.id} className="w-full py-4  m-auto rounded-lg min-w-[125px] transition-all ease-linear duration-200 hover:scale-105 cursor-pointer overflow-hidden ">
-            <img
+           
+            <Image
               src={category.imgSrc}
               alt={category.title}
-              className="h-28 w-28 mx-auto cursor-pointer  shadow-md rounded-full object-cover" 
+              height = {112}
+              width = {112}
+              className = "object-cover h-28 w-28 mx-auto cursor-pointer  shadow-md rounded-full"
             />
+            
             <h3 className="text-center mt-2  font-semibold">{category.title}</h3>
           </div>
         ))}
