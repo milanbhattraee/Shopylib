@@ -89,7 +89,9 @@ const LoginForm = () => {
 
           <div className="flex justify-center mt-4">
             <a href="#" className="text-sm font-bold text-blue-500 hover:underline">
-              Don't have an account? Sign Up
+            Don&apos;t have an account? Sign Up
+             
+
             </a>
           </div>
         </form>
