@@ -31,7 +31,7 @@ const Carousel = () => {
             height={240}
             width={500}
             loading="lazy"	
-            className="object-cover"
+            className="object-cover w-full h-60"
           />
           </div>
         </SwiperSlide>
