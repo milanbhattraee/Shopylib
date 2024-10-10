@@ -140,7 +140,7 @@ const FlashSale = () => {
 
       <button
         onClick={scrollLeft}
-        className="absolute left-14 top-1/2 transform -translate-y-1/2 p-2 bg-gray-200 rounded-full shadow hover:bg-gray-300"
+        className="absolute hidden md:block left-14 top-1/2 transform -translate-y-1/2 p-2 bg-gray-200 rounded-full shadow hover:bg-gray-300"
       >
         <ChevronLeftIcon className="h-6 w-6 text-gray-700" />
       </button>
@@ -152,7 +152,7 @@ const FlashSale = () => {
         {products.map((product) => (
           <div
             key={product.id}
-            className="w-full bg-white mx-auto border rounded-lg min-w-[200px] overflow-hidden shadow"
+            className="w-full h-72 bg-white mx-auto border rounded-lg min-w-[200px] overflow-hidden shadow"
           >
           <div className="w-full h-40 object-cover mb-4 rounded-t-lg">
             <Image
@@ -187,7 +187,7 @@ const FlashSale = () => {
 
       <button
         onClick={scrollRight}
-        className="absolute right-14 top-1/2 transform -translate-y-1/2 p-2 bg-gray-200 rounded-full shadow hover:bg-gray-300"
+        className="absolute hidden md:block right-14 top-1/2 transform -translate-y-1/2 p-2 bg-gray-200 rounded-full shadow hover:bg-gray-300"
       >
         <ChevronRightIcon className="h-6 w-6 text-gray-700" />
       </button>

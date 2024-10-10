@@ -59,7 +59,7 @@ const ProductGrid = () => {
   }, []);
 
   return (
-    <div className="bg-secondary p-4 rounded-lg shadow-md px-3 px-10">
+    <div className="bg-secondary p-4 rounded-lg shadow-md px-3 sm:px-10">
       <h2 className="text-xl font-bold mb-4">Just For You</h2>
 
       {rows.map((row, rowIndex) => (
@@ -67,7 +67,7 @@ const ProductGrid = () => {
           {row.map((product) => (
             <div
               key={product.id}
-              className="w-full bg-glassyWhite hover:transform hover:translate-y-[-3px] transition-all duration-150 cursor-pointer backdrop-blur-md m-auto  rounded-lg min-w-[200px]  overflow-hidden  shadow "
+              className="w-full bg-glassyWhite h-72 hover:transform hover:translate-y-[-3px] transition-all duration-150 cursor-pointer backdrop-blur-md m-auto  rounded-lg min-w-[200px]  overflow-hidden  shadow "
             >
               <div className="w-full h-40 object-cover mb-4 rounded-t-lg">
                 <Image
@@ -104,7 +104,7 @@ const ProductGrid = () => {
 
       <div className="flex justify-center w-full">
         <button
-          class="cursor-pointer transition-all mx-auto bg-blue-500 text-white px-6 py-2 rounded-lg
+          className="cursor-pointer transition-all mx-auto bg-blue-500 text-white px-6 py-2 rounded-lg
 border-blue-600
 border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px]
 active:border-b-[2px] active:brightness-90 active:translate-y-[2px]"
