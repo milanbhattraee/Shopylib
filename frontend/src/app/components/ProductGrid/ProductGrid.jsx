@@ -59,7 +59,7 @@ const ProductGrid = () => {
   }, []);
 
   return (
-    <div className="bg-secondary p-4 rounded-lg shadow-md  px-10">
+    <div className="bg-secondary p-4 rounded-lg shadow-md px-3 px-10">
       <h2 className="text-xl font-bold mb-4">Just For You</h2>
 
       {rows.map((row, rowIndex) => (

@@ -132,7 +132,7 @@ const FlashSale = () => {
   };
 
   return (
-    <div className="relative bg-secondary p-4 rounded-lg shadow-lg px-10">
+    <div className="relative bg-secondary p-4 rounded-lg shadow-lg px-3 sm:px-10">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-2xl font-bold">Flash Sale</h2>
         <button className="text-sm text-blue-600">See More</button>

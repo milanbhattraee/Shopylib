@@ -47,7 +47,7 @@ const categories = [
 
 const Categories = () => {
   return (
-    <div className=" p-4 rounded-lg px-10  ">
+    <div className=" p-4 rounded-lg px-3 sm:px-10  ">
       <h2 className="text-2xl font-bold mb-4 text-start">Categories</h2> 
       <div className="flex bg-white backdrop-blur-md  rounded-md py-4 overflow-x-auto space-x-4 px-6 scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent "> 
         {categories.map((category) => (
