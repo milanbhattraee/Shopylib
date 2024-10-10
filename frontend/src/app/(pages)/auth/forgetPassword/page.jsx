@@ -10,7 +10,7 @@ const ForgotPassword = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Validate email input
+  
     if (!validateEmail(email)) {
       setError("Please enter a valid email address.");
       return;
@@ -19,14 +19,14 @@ const ForgotPassword = () => {
     setError("");
     setMessage("If this email is registered, you will receive a password reset link.");
 
-    // Simulate a password reset request (you would normally make an API call here)
+  
     console.log("Password reset requested for: ", email);
 
-    // Reset form
+
     setEmail("");
   };
 
-  // Email validation function
+  
   const validateEmail = (email) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(String(email).toLowerCase());

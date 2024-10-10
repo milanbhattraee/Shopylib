@@ -64,8 +64,11 @@ const OtpForm = () => {
           </div>
 
           <div className="flex justify-center mt-4">
-            <a href="#" className="text-sm font-bold text-blue-500 hover:underline">
-              Didn't receive OTP? Resend
+            <a
+              href="#"
+              className="text-sm font-bold text-blue-500 hover:underline"
+            >
+              Didn&apos;t receive OTP? Resend
             </a>
           </div>
         </form>
