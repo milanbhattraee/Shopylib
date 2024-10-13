@@ -68,10 +68,10 @@ const Footer = () => {
           <h3 className="text-xl font-bold mb-4 text-white">We Accept</h3>
           <p className="mb-4">Secure Payment Gateways</p>
           <div className="flex space-x-4">
-            <img src="/images/payment-visa.png" alt="Visa" className="h-8" />
+            {/* <img src="/images/payment-visa.png" alt="Visa" className="h-8" />
             <img src="/images/payment-mastercard.png" alt="MasterCard" className="h-8" />
             <img src="/images/payment-paypal.png" alt="PayPal" className="h-8" />
-            <img src="/images/payment-amex.png" alt="Amex" className="h-8" />
+            <img src="/images/payment-amex.png" alt="Amex" className="h-8" /> */}
           </div>
         </div>
       </div>
