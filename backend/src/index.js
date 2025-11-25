@@ -14,7 +14,7 @@ sequelize.sync({ force: false })
   })
   .catch((err) => {
     console.error("Failed to sync users table:", err);
-  });
+  }); 
 
 
 sequelize.authenticate().then( ()=>{

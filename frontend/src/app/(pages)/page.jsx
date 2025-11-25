@@ -6,11 +6,12 @@ import Categories from '../components/categories/Categories'
 import ProductGrid from "../components/ProductGrid/ProductGrid.jsx"
 import Footer from '../components/layout/Footer'
 import ProductDetails from '../components/productDetails/ProductDetails'
+import Header from '../components/layout/Header'
 
 const Home = () => {
   return (
     <>  
-        
+        <Header/>
       <Carousel/>
       <FlashSale />
       <Categories />

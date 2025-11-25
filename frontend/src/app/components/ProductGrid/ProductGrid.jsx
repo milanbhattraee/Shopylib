@@ -60,8 +60,10 @@ const ProductGrid = () => {
 
   return (
     <div className="bg-secondary p-4 rounded-lg shadow-md px-3 sm:px-10">
+    <div className="flex justify-between items-center mb-4">
       <h2 className="text-xl font-bold mb-4">Just For You</h2>
-
+      <button className="text-sm text-blue-600">See More</button>
+</div>
       {rows.map((row, rowIndex) => (
         <div key={rowIndex} className="flex overflow-x-auto  space-x-4 mb-4">
           {row.map((product) => (

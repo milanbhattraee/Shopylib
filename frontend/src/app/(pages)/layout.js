@@ -3,16 +3,17 @@ import React from 'react'
 import Header from '../components/layout/Header'
 import { Provider } from 'react-redux'
 import { store } from '../store/store'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-const clientLayout = ({children}) => {
+const ClientLayout = ({ children }) => {
   return (
-    <>
     <Provider store={store}>
-    <Header />
-    {children}
+      
+      {children}
+      <ToastContainer />
     </Provider>
-    </>
   )
 }
 
-export default clientLayout
+export default ClientLayout;

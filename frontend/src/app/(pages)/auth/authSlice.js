@@ -1,6 +1,8 @@
-"use client"
+"use client";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { authenticateUser, loginUser, logoutUser, registerUser } from "./authApi";
+import { authenticateUser, generateNewOtp, loginUser, logoutUser, registerUser, updateUser, verifyOtp } from "./authApi";
+import blobToFile from "@/app/utils/ImageCompressor";
+
 
 // Reusable function to handle async logic
 const handleAsync = (builder, thunkAction, successCallback) => {
@@ -17,47 +19,103 @@ const handleAsync = (builder, thunkAction, successCallback) => {
     .addCase(thunkAction.rejected, (state, action) => {
       state.isLoading = false;
       state.isError = true;
-      state.errorMessage = action.error.message || "An error occurred";
+      state.errorMessage = action.error.response?.data?.message || "An error occurred";
     });
 };
 
 // Async thunks for auth operations
 export const registerUserAsync = createAsyncThunk(
-  "auth/registerUser",
-  async (userData) => {
-    const response = await registerUser(userData);
-    console.log(response)
-    return response.data;
+  "user/registerUser",
+  async (userData, { rejectWithValue }) => {
+    try {
+      const response = await registerUser(userData);
+      console.log(response,"sadf")
+      return response;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
   }
 );
 
 export const loginUserAsync = createAsyncThunk(
-  "auth/loginUser",
-  async (userData) => {
-    const response = await loginUser(userData);
-    return response;
+  "user/loginUser",
+  async (userData, { rejectWithValue }) => {
+    try {
+      const response = await loginUser(userData);
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
   }
 );
 
 export const logoutUserAsync = createAsyncThunk(
-  "auth/logoutUser",
+  "user/logoutUser",
   async () => {
-    const response = await logoutUser();
-    return response;
+    await logoutUser();
   }
 );
 
 export const authenticateUserAsync = createAsyncThunk(
-  "auth/authenticateUser",
+  "user/authenticateUser",
   async () => {
     const response = await authenticateUser();
-    return response;
+    return response.data;
+  }
+);
+
+export const updateUserAsync = createAsyncThunk(
+  "user/updateUser",
+  async (userDetails, { rejectWithValue }) => {
+    const { displayName, email, phoneNumber } = userDetails;
+
+    if (!displayName || !email) {
+      return rejectWithValue("Full Name and Email are required.");
+    }
+
+    const formData = new FormData();
+    formData.append('displayName', displayName);
+    formData.append('email', email);
+    formData.append('phoneNumber', phoneNumber);
+
+    if (userDetails.image) {
+      const blob = await fetch(userDetails.image).then((r) => r.blob());
+      const compressedImage = await blobToFile(blob);
+
+      formData.append('profileImage', compressedImage);
+    }
+
+    try {
+      const response = await updateUser(formData);
+     
+      return response; 
+    } catch (error) {
+      console.error("Error in updateUser:", error); 
+      return rejectWithValue("Failed to update user");
+    }
+  }
+  
+);
+
+export const generateNewOtpAsync = createAsyncThunk(
+  "user/generateNewOtp",
+  async (userId) => {
+    const response = await generateNewOtp(userId);
+    return response.data;
+  }
+);
+export const verifyOtpAsync = createAsyncThunk(
+  "user/verifyOtp",
+  async ({otp,userId}) => {
+    const response = await verifyOtp(otp,userId);
+    console.log(response,'user')
+    return response.data;
   }
 );
 
 // Auth slice
 const authSlice = createSlice({
-  name: "auth",
+  name: "user",
   initialState: {
     user: null,
     isLogin: false,
@@ -68,25 +126,42 @@ const authSlice = createSlice({
   extraReducers: (builder) => {
     // Register User
     handleAsync(builder, registerUserAsync, (state, action) => {
-      state.user = action.payload;
+      state.user = action.payload.user; 
     });
 
     // Login User
     handleAsync(builder, loginUserAsync, (state, action) => {
-      state.isLogin = true;
-      state.user = action.payload;
+      state.user = action.payload.user;  
+      
+      if(action.payload.user.isVerified){
+        state.isLogin = true;
+        
+      }
     });
 
     // Logout User
     handleAsync(builder, logoutUserAsync, (state) => {
       state.isLogin = false;
       state.user = null;
+
     });
 
     // Authenticate User
     handleAsync(builder, authenticateUserAsync, (state, action) => {
+    if(action.payload.user.isVerified){
       state.isLogin = true;
-      state.user = action.payload;
+    }
+      state.user = action.payload.user; 
+    });
+    // Update User 
+    handleAsync(builder, updateUserAsync, (state, action) => {
+      state.user = action.payload.user;
+    });
+    // Verify OTP 
+    handleAsync(builder, verifyOtpAsync, (state, action) => {
+      state.isVerified = true ;
+      
+      state.user = action.payload.user;
     });
   },
 });

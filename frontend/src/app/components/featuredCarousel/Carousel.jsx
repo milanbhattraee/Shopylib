@@ -30,8 +30,8 @@ const Carousel = () => {
             alt={banner.alt}
             height={240}
             width={500}
-            loading="lazy"	
             className="object-cover w-full h-auto "
+            priority 
           />
           </div>
         </SwiperSlide>
